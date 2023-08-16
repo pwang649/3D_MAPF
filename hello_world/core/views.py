@@ -12,8 +12,8 @@ def index(request):
     return render(request, "index.html", context)
 
 def test1(request):
-
-    return HttpResponse("heloi")
+    create3D(50, 10, 5, 10, 5, 2)
+    return HttpResponse("hello")
 
 def test2(request):
     visualize_map()
