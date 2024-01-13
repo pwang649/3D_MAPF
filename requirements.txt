@@ -1,0 +1,9 @@
+beautifulsoup4==4.10.0
+bs4==0.0.1
+Django==4.0.2
+matplotlib==3.5.1
+numpy==1.22.1
+requests
+urllib3
+gunicorn
+django-heroku
