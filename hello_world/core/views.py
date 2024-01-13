@@ -11,14 +11,29 @@ def index(request):
     }
     return render(request, "index.html", context)
 
-def test1(request):
-    create3D(50, 10, 5, 10, 5, 2)
-    return HttpResponse("hello")
+def generate_map(request):
+    if request.method == 'POST':
+        input1 = int(request.POST.get('input1'))
+        input2 = int(request.POST.get('input2'))
+        input3 = int(request.POST.get('input3'))
+        input4 = int(request.POST.get('input4'))
+        input5 = int(request.POST.get('input5'))
+        input6 = int(request.POST.get('input6'))
 
-def test2(request):
-    visualize_map()
-    return render(request, "50_10_5_10_5_2.html", None)
+        nodes, edges = create3D(input1, input2, input3, input4, input5, input6)
+        html = visualize(nodes, edges)
+        context = {
+            "map": html,
+        }
+
+        return render(request, "index.html", context)
+
+    return render(request, 'index.html')
 
 def test3(request):
-    animate_paths()
-    return render(request, "backAndForth.html", None)
+    nodes, edges = create3D(50, 10, 5, 10, 5, 2)
+    html = visualize(nodes, edges)
+    context = {
+        "map": html,
+    }
+    return render(request, "index.html", context)

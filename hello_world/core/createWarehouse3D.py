@@ -105,30 +105,31 @@ def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, n
 
     print("Num Nodes: {}".format(len(all_nodes)))
     print("Num Edges: {}".format(len(all_edges)))
+    # pdb.set_trace()
 
-    output_folder = ""
     nodeDf = pd.DataFrame(all_nodes, columns=["NodeId", "X", "Y", "Z"])
-    nodeDf.to_csv(output_folder + "{}_{}_{}_{}_{}_{}_Nodes.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
+    # nodeDf.to_csv("{}_{}_{}_{}_{}_{}_Nodes.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
 
     edgeDf = pd.DataFrame(all_edges, columns=["nodeFrom", "nodeTo"])
     edgeDf["bidirectional"] = "true"
-    edgeDf.to_csv(output_folder + "{}_{}_{}_{}_{}_{}_Edges.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
+    # edgeDf.to_csv("{}_{}_{}_{}_{}_{}_Edges.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
+    # pdb.set_trace()
+    return nodeDf, edgeDf
 
+# if __name__ == "__main__":
 
-if __name__ == "__main__":
+#     parser = argparse.ArgumentParser(
+#                 prog='create 3D warehosue',
+#                 description='For creating customized 3D warehosue maps')
 
-    parser = argparse.ArgumentParser(
-                prog='create 3D warehosue',
-                description='For creating customized 3D warehosue maps',
-                epilog='Text at the bottom of help')
+#     parser.add_argument('-l', '--aisle_length', type=int)
+#     parser.add_argument('-na', '--num_of_aisles', type=int)
+#     parser.add_argument('-ag', '--aisle_gap', type=int)
+#     parser.add_argument('-nl', '--num_of_levels', type=int)
+#     parser.add_argument('-lg', '--level_gap', type=int)
+#     parser.add_argument('-e', '--num_of_elevator', type=int)
+#     parser.add_argument('-o', '--output_folder', type=str, required=False, default=".")
 
-    parser.add_argument('-l', '--aisle_length', type=int)
-    parser.add_argument('-na', '--num_of_aisles', type=int)
-    parser.add_argument('-ag', '--aisle_gap', type=int)
-    parser.add_argument('-nl', '--num_of_levels', type=int)
-    parser.add_argument('-lg', '--level_gap', type=int)
-    parser.add_argument('-e', '--num_of_elevator', type=int)
+#     args = parser.parse_args()
 
-    args = parser.parse_args()
-
-    create3D(args.aisle_length, args.num_of_aisles, args.aisle_gap, args.num_of_levels, args.level_gap, args.num_of_elevator)
+#     create3D(args.aisle_length, args.num_of_aisles, args.aisle_gap, args.num_of_levels, args.level_gap, args.num_of_elevator, args.output_folder)
