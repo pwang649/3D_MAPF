@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from hello_world.core.createWarehouse3D import create3D
-from hello_world.core.visualization import *
+from mapf.core.createWarehouse3D import create3D
+from mapf.core.visualization import *
 
 
 def index(request):
