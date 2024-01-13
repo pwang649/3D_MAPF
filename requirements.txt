@@ -2,3 +2,5 @@ Django
 urllib3
 gunicorn
 django-heroku
+numpy
+plotly
