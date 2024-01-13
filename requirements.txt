@@ -4,3 +4,4 @@ gunicorn
 django-heroku
 numpy
 plotly
+pandas
