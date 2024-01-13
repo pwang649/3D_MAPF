@@ -1,14 +1,4 @@
-from plotly.offline import plot
-import plotly.express as px
 import plotly.graph_objects as go
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-
-import argparse
-import numpy as np
-import pandas as pd
-import statistics as st
 
 def visualize(ndf, edf):
     ### Plotly
