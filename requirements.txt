@@ -7,7 +7,6 @@ backcall==0.2.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
 certifi==2023.5.7
-cffi @ file:///private/tmp/cffi-20231014-5454-1xfyd4s/cffi-1.16.0
 charset-normalizer==3.2.0
 click==8.1.5
 comm==0.1.4
