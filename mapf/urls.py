@@ -21,7 +21,6 @@ from mapf.core import views as core_views
 urlpatterns = [
     path("", core_views.index),
     path("admin/", admin.site.urls),
-    path("__reload__/", include("django_browser_reload.urls")),
     path("test3/", core_views.test3),
     path('generate_map/', core_views.generate_map, name="generate_map"),
 ]
