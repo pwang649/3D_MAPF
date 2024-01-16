@@ -21,6 +21,8 @@ from mapf.core import views as core_views
 urlpatterns = [
     path("", core_views.index),
     path("admin/", admin.site.urls),
-    path("test3/", core_views.test3),
+    # path("default/", core_views.default),
     path('generate_map/', core_views.generate_map, name="generate_map"),
+    path('download/nodes/', core_views.download_nodes, name='download_nodes'),
+    path('download/edges/', core_views.download_edges, name='download_edges'),
 ]

@@ -35,11 +35,19 @@
             display: block;
             color: white;
         }
-
+        .buttons {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
         button {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
+            margin: 0px 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -61,30 +69,35 @@
         <nav>
             <div>
                 <label for="input1">aisle length:</label>
-                <input type="number" id="input1" name="input1" placeholder="aisle length" step="1" min="1">
+                <input type="number" id="input1" name="input1" value="{{input1}}" placeholder="aisle length" step="1" min="1">
             </div>
             <div>
                 <label for="input2">number of aisles:</label>
-                <input type="number" id="input2" name="input2" placeholder="number of aisles" step="1" min="1">
+                <input type="number" id="input2" name="input2" value="{{input2}}" placeholder="number of aisles" step="1" min="1">
             </div>
             <div>
                 <label for="input3">aisle gap:</label>
-                <input type="number" id="input3" name="input3" placeholder="aisle gap"step="1" min="1">
+                <input type="number" id="input3" name="input3" value="{{input3}}" placeholder="aisle gap"step="1" min="1">
             </div>
             <div>
                 <label for="input4">number of levels:</label>
-                <input type="number" id="input4" name="input4" placeholder="number of levels" step="1" min="1">
+                <input type="number" id="input4" name="input4" value="{{input4}}" placeholder="number of levels" step="1" min="1">
             </div>
             <div>
                 <label for="input5">level gap:</label>
-                <input type="number" id="input5" name="input5" placeholder="level gap" step="1" min="1">
+                <input type="number" id="input5" name="input5" value="{{input5}}" placeholder="level gap" step="1" min="1">
             </div>
             <div>
                 <label for="input6">number of elevators:</label>
-                <input type="number" id="input6" name="input6" placeholder="number of elevators" step="1" min="1">
+                <input type="number" id="input6" name="input6" value="{{input6}}" placeholder="number of elevators" step="1" min="1">
             </div>
-            <button type="submit">Generate Map</button>
         </nav>
+            <div class="buttons">
+            <button type="submit">Generate Map</button>
+            <a href="{% url 'download_nodes' %}" download><button type="button">Download Nodes.csv</button></a>
+            <a href="{% url 'download_edges' %}" download><button type="button">Download Edges.csv</button></a>
+            </div>
+        
     </form>
     <div style="height: 100%;">
         {{ map | safe }}</div>

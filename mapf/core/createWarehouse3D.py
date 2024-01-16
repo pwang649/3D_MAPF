@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 
@@ -102,8 +101,8 @@ def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, n
             all_nodes += nodes
             all_edges += edges
 
-    print("Num Nodes: {}".format(len(all_nodes)))
-    print("Num Edges: {}".format(len(all_edges)))
+    # print("Num Nodes: {}".format(len(all_nodes)))
+    # print("Num Edges: {}".format(len(all_edges)))
     # pdb.set_trace()
 
     nodeDf = pd.DataFrame(all_nodes, columns=["NodeId", "X", "Y", "Z"])
