@@ -23,6 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # path("default/", core_views.default),
     path('generate_map/', core_views.generate_map, name="generate_map"),
-    path('download/nodes/', core_views.download_nodes, name='download_nodes'),
-    path('download/edges/', core_views.download_edges, name='download_edges'),
+    path('download/', core_views.download, name='download'),
 ]
