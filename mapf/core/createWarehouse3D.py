@@ -1,3 +1,4 @@
+import pdb
 import pandas as pd
 
 
@@ -82,7 +83,7 @@ def create_complete_2D_level(z_level, aisle_length, num_of_aisles, aisle_gap, nu
     return nodes, edges
 
 
-def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator):
+def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator, num_of_agents):
 
     z_size = get_z_size(num_of_levels, level_gap)
     occupied_levels = [z for z in range(z_size) if z % (1 + level_gap) == 0]
@@ -111,8 +112,13 @@ def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, n
     edgeDf = pd.DataFrame(all_edges, columns=["nodeFrom", "nodeTo"])
     edgeDf["bidirectional"] = "true"
     # edgeDf.to_csv("{}_{}_{}_{}_{}_{}_Edges.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
+    seed = 1
+    startGoalLocations = pd.DataFrame({'agentId': range(1, num_of_agents+1)})
+    startGoalLocations["startNodeId"] = nodeDf["NodeId"].sample(n=num_of_agents, replace=False, random_state=seed).reset_index(drop=True)
+    startGoalLocations["goalNodeId"] = nodeDf["NodeId"].sample(n=num_of_agents, replace=False, random_state=seed).reset_index(drop=True)
+    
     # pdb.set_trace()
-    return nodeDf, edgeDf
+    return nodeDf, edgeDf, startGoalLocations
 
 # if __name__ == "__main__":
 

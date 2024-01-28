@@ -91,10 +91,14 @@
                 <label for="input6">number of elevators:</label>
                 <input type="number" id="input6" name="input6" value="{{input6}}" placeholder="number of elevators" step="1" min="1">
             </div>
+            <div>
+                <label for="input7">number of agents:</label>
+                <input type="number" id="input7" name="input7" value="{{input7}}" placeholder="number of agents" step="1" min="1">
+            </div>
         </nav>
             <div class="buttons">
             <button type="submit">Generate Map</button>
-            <a href="{% url 'download' %}" download><button type="button">Download Nodes and Edges</button></a>
+            <a href="{% url 'download' %}" download><button type="button">Download Files</button></a>
             </div>
         
     </form>
