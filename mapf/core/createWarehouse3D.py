@@ -113,27 +113,32 @@ def create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, n
     edgeDf["bidirectional"] = "true"
     # edgeDf.to_csv("{}_{}_{}_{}_{}_{}_Edges.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
     seed = 1
+    # for seed in range(10):
     startGoalLocations = pd.DataFrame({'agentId': range(1, num_of_agents+1)})
     startGoalLocations["startNodeId"] = nodeDf["NodeId"].sample(n=num_of_agents, replace=False, random_state=seed).reset_index(drop=True)
     startGoalLocations["goalNodeId"] = nodeDf["NodeId"].sample(n=num_of_agents, replace=False, random_state=seed).reset_index(drop=True)
+        # startGoalLocations.to_csv("all_scens/{}_{}_{}_{}_{}_{}/{}_{}_{}_{}_{}_{}_StartGoalLocations_Seed{}.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator, aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator, seed), index=False)
     
     # pdb.set_trace()
     return nodeDf, edgeDf, startGoalLocations
 
 # if __name__ == "__main__":
-
-#     parser = argparse.ArgumentParser(
-#                 prog='create 3D warehosue',
-#                 description='For creating customized 3D warehosue maps')
-
-#     parser.add_argument('-l', '--aisle_length', type=int)
-#     parser.add_argument('-na', '--num_of_aisles', type=int)
-#     parser.add_argument('-ag', '--aisle_gap', type=int)
-#     parser.add_argument('-nl', '--num_of_levels', type=int)
-#     parser.add_argument('-lg', '--level_gap', type=int)
-#     parser.add_argument('-e', '--num_of_elevator', type=int)
-#     parser.add_argument('-o', '--output_folder', type=str, required=False, default=".")
-
-#     args = parser.parse_args()
-
-#     create3D(args.aisle_length, args.num_of_aisles, args.aisle_gap, args.num_of_levels, args.level_gap, args.num_of_elevator, args.output_folder)
+#     maps = [(50, 10, 5, 10, 5, 2, 2000),
+#             (100, 10, 5, 10, 5, 2, 2000),
+#             (25, 10, 5, 10, 5, 2, 2000),
+#             (50, 20, 5, 10, 5, 2, 2000),
+#             (50, 5, 5, 10, 5, 2, 2000),
+#             (50, 10, 10, 10, 5, 2, 2000),
+#             (50, 10, 2, 10, 5, 2, 2000),
+#             (50, 10, 5, 20, 5, 2, 2000),
+#             (50, 10, 5, 5, 5, 2, 2000),
+#             (50, 10, 5, 10, 10, 2, 2000),
+#             (50, 10, 5, 10, 2, 2, 2000),
+#             (50, 10, 5, 10, 5, 4, 2000),
+#             (50, 10, 5, 10, 5, 1, 2000),
+#             (100, 20, 10, 20, 10, 4, 2000),
+#             (25, 5, 2, 5, 2, 1, 1000)]
+#     for aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator, num_agents in maps:    
+#         nodeDf, edgeDf, startGoalLocations = create3D(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator, num_agents)
+#         nodeDf.to_csv("all_maps/{}_{}_{}_{}_{}_{}_Nodes.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)
+#         edgeDf.to_csv("all_maps/{}_{}_{}_{}_{}_{}_Edges.csv".format(aisle_length, num_of_aisles, aisle_gap, num_of_levels, level_gap, num_of_elevator), index=False)

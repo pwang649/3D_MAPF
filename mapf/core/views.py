@@ -80,3 +80,17 @@ def download(request):
     response['Content-Disposition'] = f'attachment; filename="{zip_name}"'
     response.write(zip_buffer.getvalue())
     return response
+
+def download_all_maps(request):
+    file_path = 'all_maps.zip'
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/zip')
+        response['Content-Disposition'] = f'attachment; filename={os.path.basename(file_path)}'
+        return response
+
+def download_all_scens(request):
+    file_path = 'all_scens.zip'
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/zip')
+        response['Content-Disposition'] = f'attachment; filename={os.path.basename(file_path)}'
+        return response

@@ -24,4 +24,6 @@ urlpatterns = [
     # path("default/", core_views.default),
     path('generate_map/', core_views.generate_map, name="generate_map"),
     path('download/', core_views.download, name='download'),
+    path('download_all_maps/', core_views.download_all_maps, name='download_all_maps'),
+    path('download_all_scens/', core_views.download_all_scens, name='download_all_scens'),
 ]
